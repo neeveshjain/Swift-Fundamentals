@@ -1,15 +1,9 @@
-//
-//  BackGroundView.swift
-//  Greetings
-//
-//  Created by Neevesh Jain on 25/11/25.
-//
 
 import SwiftUI
 
 struct BackGroundView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LinearGradient(colors: [Color.myBlue1, Color.myBlue2], startPoint: .topLeading, endPoint: .bottomTrailing).opacity(0.3).ignoresSafeArea(edges: .all)
     }
 }
 

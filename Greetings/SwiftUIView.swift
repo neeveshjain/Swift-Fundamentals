@@ -1,18 +1,33 @@
-//
-//  SwiftUIView.swift
-//  Greetings
-//
-//  Created by Neevesh Jain on 25/11/25.
-//
 
 import SwiftUI
 
-struct SwiftUIView: View {
+struct TextView: View {
+    
+    let text:String
+    @State var color:Color
+    let colors:[Color] = [.purple,.indigo,.blue,.green,.yellow,.orange,.red]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+        Text(text)
+            .fontWeight(.semibold)
+            .font(.body)
+            .padding()
+            .foregroundStyle(.white)
+            .background(color.opacity(0.8))
+            .cornerRadius(20.0)
+            .onTapGesture {
+                withAnimation{
+                    color = colors.randomElement() ?? .red
+                }
+            }
+  }
 }
 
 #Preview {
-    SwiftUIView()
+    VStack {
+        TextView(text: "Hogaya na bhai", color: .blue)
+        TextView(text: "Hummus", color: .green)
+        TextView(text: "Peace", color: .purple)
+
+    }
 }

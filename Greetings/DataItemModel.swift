@@ -1,8 +1,9 @@
-//
-//  DataItemModel.swift
-//  Greetings
-//
-//  Created by Neevesh Jain on 25/11/25.
-//
-
 import Foundation
+import SwiftUI
+
+
+struct DataItemModel:Identifiable{
+    let id = UUID()
+    let text: String
+    let color: Color
+}

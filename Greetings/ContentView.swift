@@ -1,21 +1,18 @@
-//
-//  ContentView.swift
-//  Greetings
-//
-//  Created by Neevesh Jain on 23/11/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            BackGroundView()
+            VStack(alignment: .leading) {
+                TitleView()
+                Spacer()
+                MessagesView()
+                Spacer()
+            }
+            .padding()
         }
-        .padding()
     }
 }
 
