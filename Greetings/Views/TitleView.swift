@@ -1,6 +1,7 @@
 
 import SwiftUI
 
+/// This is the title view of the app which displays a title, a subtitile which randomly changes on tap. And we have a coloful disk which rotates on tap and which is amazing.
 struct TitleView: View {
     
     let lineWidth = 15.0
@@ -15,8 +16,8 @@ struct TitleView: View {
         AngularGradient(gradient: Gradient(colors: [.red, .blue, .orange,.green]), center: .center, angle: .zero)
     }
     
-    @State private var subtitile = "Lets get started!"
-    let subtitiles : [String] = ["Lets get started!","Welcome to IOS programming.","SwiftUI is awesome!"]
+    @State private var subtitile: LocalizedStringKey = "Lets get started!"
+    let subtitiles : [LocalizedStringKey] = ["Lets get started!","Welcome to IOS programming.","SwiftUI is awesome!"]
     
     var body: some View {
         HStack {
