@@ -9,11 +9,21 @@ import SwiftUI
 
 struct GreetingsTextView: View {
     @Binding var subtitile: LocalizedStringKey
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
+    var isIpad : Bool {
+        horizontalSizeClass == .regular && verticalSizeClass == .regular
+    }
+    
+    var font:Font{
+        isIpad ? .system(size: 50) : .largeTitle
+    }
     let subtitiles : [LocalizedStringKey] = ["Lets get started!","Welcome to IOS programming.","SwiftUI is awesome!"]
     var body: some View {
         VStack(alignment: .leading) {
             Text("SwiftUI")
-                .font(.largeTitle)
+                .font(font)
                 .fontWeight(.bold)
             Text(subtitile)
                 .font(.headline)

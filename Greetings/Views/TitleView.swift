@@ -7,6 +7,8 @@ struct TitleView: View {
     @State private var subtitile: LocalizedStringKey = "Lets get started!"
     let subtitiles : [LocalizedStringKey] = ["Lets get started!","Welcome to IOS programming.","SwiftUI is awesome!"]
     
+    
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
