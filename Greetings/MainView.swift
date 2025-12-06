@@ -19,16 +19,33 @@ struct MainView: View {
         horizontalSizeClass == .regular && verticalSizeClass == .regular
     }
     
+    @Binding var language: String
+    @Binding var layoutDirectionString: String
+    
     var body: some View {
         // Portrait Mode ?
         if isPortraitPhone || isIpad {
-            GreetingsView()
+            NavigationStack{
+                GreetingsView()
+                    .toolbar{
+                        ToolbarItem(placement: .topBarTrailing) {
+                            LanguageOptionsTapView(Language: $language, LayoutDirectionString: $layoutDirectionString)
+                        }
+                    }
+            }
         }else{
-            LandscapeGreetingsView()
+            NavigationStack{
+                LandscapeGreetingsView()
+                    .toolbar{
+                        ToolbarItem(placement: .topBarTrailing) {
+                            LanguageOptionsTapView(Language: $language, LayoutDirectionString: $layoutDirectionString)
+                        }
+                    }
+            }
         }
     }
 }
 
 #Preview {
-    MainView()
+    MainView(language: .constant("en"), layoutDirectionString: .constant(LEFT_TO_RIGHT))
 }
